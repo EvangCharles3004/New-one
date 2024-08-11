@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="result"></div><br>
+<input type="text" id="demo1">
+<button onclick="addStorage()">Add</button>
+<button onclick="removeStorage()">remove</button>
+
+<script>
+
+function removeStorage(){
+
+localStorage.removeItem("lastname")
+document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+}
+
+function addStorage(){
+    let addName = document.querySelector("#demo1").value;
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+      // Store
+      localStorage.setItem("lastname", addName);
+      // Retrieve
+      document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+    } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+    
+    }
+    
+    
+    </script>
+    
+    </body>
+    </html>
